@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  public title: string = 'ng-course';
+  public width: number = 50;
+  public logo: string = 'assets/images/logo.jpg';
+  public placeholder: string = 'please search';
+  public searchTerm: string;
+
+  public constructor() {
+  }
+
 }
