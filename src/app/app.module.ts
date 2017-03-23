@@ -7,10 +7,16 @@ import { AppComponent } from './app.component';
 import { SearchModule } from './search/search.module';
 
 import { HeaderComponent } from './header/header.component';
+import { CardComponent } from './card/card.component';
+import { UserFilterPipe } from './common/pipes/user-filter.pipe';
+import { TooltipDirective } from './common/directives/tooltip.directive';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    CardComponent,
+    UserFilterPipe,
+    TooltipDirective
   ],
   imports: [
     BrowserModule,

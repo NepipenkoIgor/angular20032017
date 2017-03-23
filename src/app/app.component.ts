@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import {users} from './mock-data';
+import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,8 +12,11 @@ export class AppComponent {
   public logo: string = 'assets/images/logo.jpg';
   public placeholder: string = 'please search';
   public searchTerm: string;
+  public users: Observable<User[]> = users;
 
   public constructor() {
+
+
   }
 
 }

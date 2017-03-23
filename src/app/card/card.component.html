@@ -1,0 +1,12 @@
+<md-card class="example-card" [ngClass]="{background:isOdd}">
+  <md-card-header>
+    <div class="position">{{position}}.</div>
+    <img class="avatar"
+      (mouseenter)="t.show()"
+      (mouseleave)="t.hide()"
+      [src]="user.photo ?user.photo :defImg" alt="">
+    <div class="name" [appTooltip]="user.country" #t="tooltip">
+      {{user.firstName }} {{user.surname}}
+    </div>
+  </md-card-header>
+</md-card>

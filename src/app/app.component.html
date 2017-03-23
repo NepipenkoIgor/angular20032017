@@ -2,9 +2,13 @@
   <img [src]="logo" [alt]="title" [width]='width'>
   {{title}}
   <app-search [placeholder]="placeholder"
-  (mySearch)="searchTerm = $event" ></app-search>
+    (mySearch)="searchTerm = $event"></app-search>
 </app-header>
 
-{{searchTerm}}
+<app-card *ngFor="let user of users | async | userFilter:searchTerm; let i = index; let isOdd=odd"
+  [user]="user"
+  [position]="i+1"
+  [isOdd]="isOdd"
+></app-card>
 
 
