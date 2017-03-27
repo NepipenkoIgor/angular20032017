@@ -5,10 +5,13 @@
     (mySearch)="searchTerm = $event"></app-search>
 </app-header>
 
-<app-card *ngFor="let user of users | async | userFilter:searchTerm; let i = index; let isOdd=odd"
+<app-card *ngFor="let user of users$ | async | userFilter:searchTerm; let i = index; let isOdd=odd"
   [user]="user"
   [position]="i+1"
   [isOdd]="isOdd"
+  (click)="openCard(user)"
 ></app-card>
+
+<app-modal></app-modal>
 
 

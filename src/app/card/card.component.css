@@ -1,20 +1,22 @@
 .avatar {
   width: 40px;
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+
 .name, .position {
   line-height: 45px;
   margin: 0 20px;
 }
-.background{
+
+.background {
   background-color: ghostwhite;
 }
 
 .tooltip {
   position: absolute;
-  top:0;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  top: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 50%;
   line-height: 20px;
   margin: 10px 0;
@@ -24,4 +26,8 @@
 
 .tooltip-active {
   display: block;
+}
+
+i {
+  line-height: 45px;
 }

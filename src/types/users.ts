@@ -3,5 +3,6 @@ type User = {
   'surname': string,
   'country': string,
   'photo'?: string,
+  likes?: number
 };
 

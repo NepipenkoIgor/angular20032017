@@ -155,7 +155,6 @@
         "variable-declaration": "nospace"
       }
     ],
-
     "class-name": true,
     "no-console": [
       true,
