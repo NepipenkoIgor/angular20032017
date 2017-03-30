@@ -8,7 +8,7 @@
     <div class="name" [appTooltip]="user.country" #t="tooltip">
       {{user.firstName }} {{user.surname}}
     </div>
-    <div *ngIf="user.likes">
+    <div *ngIf="!!user.likes">
       <i class="icon-smile"></i>
     </div>
   </md-card-header>
