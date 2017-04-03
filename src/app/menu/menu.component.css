@@ -1,0 +1,9 @@
+a {
+  color: white;
+  margin: 0 5px;
+  text-decoration: none;
+}
+
+a.active {
+  color: lightgreen;
+}

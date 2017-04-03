@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/debounceTime';
 import { Subscription } from 'rxjs/Subscription';
+import { Observer } from 'rxjs';
 let input: HTMLInputElement = document.querySelector('.search') as HTMLInputElement;
 // function eventSequence<T>(element: HTMLElement, eventName: string): Promise<T> {
 //   return new Promise((res, rej) => {
@@ -87,17 +88,36 @@ let input: HTMLInputElement = document.querySelector('.search') as HTMLInputElem
 // }, 2000);
 
 
-Observable.fromEvent(input, 'input')
-  .debounceTime(300)
-  .map((event: KeyboardEvent) => (event.target as HTMLInputElement).value)
-  .do((searchTerm: string) => {
-    console.log(searchTerm);
-  })
-  .switchMap((searchTerm: string) =>
-    Observable.fromPromise(fetch(`https://api.github.com/search/repositories?q=${searchTerm}`)
-      .then((res: Response) => res.json()))
-  )
-  .map((repo: any) => repo.items)
-  .subscribe((items: any[]) => {
-    console.log(items);
-  });
+// Observable.fromEvent(input, 'input')
+//   .debounceTime(300)
+//   .map((event: KeyboardEvent) => (event.target as HTMLInputElement).value)
+//   .do((searchTerm: string) => {
+//     console.log(searchTerm);
+//   })
+//   .switchMap((searchTerm: string) => {
+//     return Observable.fromPromise(fetch(`https://api.github.com/search/repositories?q=${searchTerm}`)
+//       .then((res: Response) => res.json()));
+//   })
+//   .map((repo: any) => repo.items)
+//   .subscribe((items: any[]) => {
+//     console.log(items);
+//   });
+
+// let req: Observable<string> = Observable.create((observer: Observer<string>) => {
+//   const xhr: XMLHttpRequest = new XMLHttpRequest();
+//   xhr.open('GET', 'http://learn.javascript.ru/courses/groups/api/participants?key=uy5nm6', true);
+//
+//   xhr.onload = () => {
+//     observer.next(xhr.responseText);
+//     observer.complete();
+//     // Request finished. Do processing here.
+//   };
+//
+//   xhr.onerror = (err) => {
+//     observer.error(err);
+//   };
+//
+//   xhr.send(null);
+// });
+//
+// req.subscribe();

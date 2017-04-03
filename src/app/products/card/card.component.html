@@ -4,12 +4,9 @@
     <img class="avatar"
       (mouseenter)="t.show()"
       (mouseleave)="t.hide()"
-      [src]="user.photo ?user.photo :defImg" alt="">
-    <div class="name" [appTooltip]="user.country" #t="tooltip">
-      {{user.firstName }} {{user.surname}}
-    </div>
-    <div *ngIf="!!user.likes">
-      <i class="icon-smile"></i>
+      [src]="product.picture ?product.picture :defImg" alt="">
+    <div class="name" [appTooltip]="product.title" #t="tooltip">
+      {{product.title }}
     </div>
   </md-card-header>
 </md-card>

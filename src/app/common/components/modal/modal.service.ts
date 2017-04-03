@@ -15,5 +15,8 @@ export class ModalService {
     return this._modalSequence$$.asObservable();
   }
 
+  public close(): void {
+    this._modalSequence$$.next(null);
+  }
 
 }

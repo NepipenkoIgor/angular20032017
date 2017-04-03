@@ -1,4 +1,4 @@
 export const environment: env = {
   production: true,
-  domain: 'http://learn.javascript.ru'
+  domain: 'http://localhost:4201'
 };

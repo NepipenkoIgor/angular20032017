@@ -9,7 +9,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 export class CardComponent {
 
   @Input()
-  public user: User;
+  public product: Product;
   @Input()
   public position: number;
   @Input()

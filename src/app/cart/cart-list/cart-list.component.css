@@ -1,0 +1,33 @@
+:host{
+  width:50%;
+  display: block;
+  margin: 15% auto;
+  background-color: white;
+}
+
+.total-sum {
+  float: right;
+  margin: 10px;
+}
+
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.name, .position {
+  line-height: 45px;
+  margin: 0 20px;
+}
+
+.background {
+  background-color: ghostwhite;
+}
+
+.remove{
+  cursor: pointer;
+}
+.remove:hover{
+  font-weight: bold;
+}

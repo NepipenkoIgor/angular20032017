@@ -26,18 +26,22 @@ export class ModalComponent {
     private _componentFactoryResolver: ComponentFactoryResolver
   ) {
     this._modalService.modalSequence$
-      .subscribe(({ component, context }: { component: any, context: any }) => {
+      .subscribe((componentObj: { component: any, context: any }) => {
+        if (!componentObj) {
+          this.close();
+          return;
+        }
         this.isOpen = true;
-        this.childComponent = this._componentFactoryResolver.resolveComponentFactory(component);
+        this.childComponent = this._componentFactoryResolver.resolveComponentFactory(componentObj.component);
         this.modalContext = this.modal.createComponent(this.childComponent);
-        Object.keys(context)
-          .forEach((key: string) => this.modalContext.instance[key] = context[key]);
+        Object.keys(componentObj.context)
+          .forEach((key: string) => this.modalContext.instance[key] = componentObj.context[key]);
       });
 
   }
 
   @HostListener('window:keyup', ['$event.keyCode'])
-  public close(code: number): void {
+  public close(code: number = 27): void {
     if (code !== 27) {
       return;
     }

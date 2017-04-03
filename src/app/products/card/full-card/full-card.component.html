@@ -1,0 +1,12 @@
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>{{product.title}}</md-card-title>
+    <md-card-subtitle>{{product.price}}</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image [src]="product.picture">
+  <md-card-actions>
+    <button md-button (click)="buy({product:product,action:'add'})">BUY</button>
+    <button md-button [routerLink]="['products',product._id]">More Info</button>
+  </md-card-actions>
+</md-card>

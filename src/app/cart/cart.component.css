@@ -1,0 +1,19 @@
+:host {
+  width: 45%;
+  display: block;
+  float: right;
+}
+
+.counter {
+  background-color: lightgreen;
+  min-width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  text-align: center;
+  font-size: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.counter>span{
+  line-height: 30px;
+}

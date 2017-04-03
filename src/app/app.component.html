@@ -1,16 +1,16 @@
 <app-header>
   <img [src]="logo" [alt]="title" [width]='width'>
   {{title}}
-  <app-search [placeholder]="placeholder"
-    (mySearch)="searchTerm = $event"></app-search>
+
+  <div class="right-side">
+    <app-search [placeholder]="placeholder"
+      (mySearch)="searchTerm = $event"></app-search>
+    <app-cart></app-cart>
+  </div>
+
+  <app-menu></app-menu>
 </app-header>
 
-
-<app-card *ngFor="let user of users$ | async | userFilter:searchTerm; let i = index; let isOdd=odd"
-  [user]="user"
-  [position]="i+1"
-  [isOdd]="isOdd"
-  (click)="openCard(user)"
-></app-card>
+<router-outlet></router-outlet>
 
 <app-modal></app-modal>

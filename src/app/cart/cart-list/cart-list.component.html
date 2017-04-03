@@ -1,0 +1,19 @@
+<div>
+  <md-card class="example-card" [ngClass]="{background:isOdd}"
+    *ngFor="let product of products; index as position">
+    <md-card-header>
+      <div class="position">{{position+1}}.</div>
+      <img class="avatar"
+        [src]="product.picture ?product.picture :defImg" alt="">
+      <div class="name">
+        {{product.title }}
+      </div>
+      <div class="remove" (click)="remove({product:product,action:'remove'})">x</div>
+    </md-card-header>
+  </md-card>
+  <button md-button [routerLink]="['order']">Make Order</button>
+  <div class="total-sum">
+    {{getTotalSum(products)}}
+  </div>
+</div>
+

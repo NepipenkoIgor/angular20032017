@@ -5,5 +5,5 @@
 
 export const environment: env = {
   production: false,
-  domain: 'http://learn.javascript.ru'
+  domain: 'http://localhost:4201'
 };
