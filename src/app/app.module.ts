@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -31,7 +31,8 @@ import { InfoComponent } from './info/info.component';
 import { OrderComponent } from './order/order.component';
 import { ProductComponent } from './product/product.component';
 import { ProductResolveService } from './product/product-resolve.service';
-
+import { OrderGuardService } from './order/order-guard.service';
+import { PassValidatorDirective } from './common/directives/pass-validator.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,13 +48,15 @@ import { ProductResolveService } from './product/product-resolve.service';
     MenuComponent,
     InfoComponent,
     OrderComponent,
-    ProductComponent
+    ProductComponent,
+    PassValidatorDirective
   ],
   imports: [
     BrowserModule,
     SearchModule,
     MaterialModule,
     HttpModule,
+    FormsModule, ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   entryComponents: [
@@ -65,6 +68,7 @@ import { ProductResolveService } from './product/product-resolve.service';
     CartService,
     ProductService,
     ProductResolveService,
+    OrderGuardService,
     {
       provide: DOMAIN, // Type, string, token
       useValue: environment.domain,

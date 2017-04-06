@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProductService } from '../common/services/product.service';
 import { ModalService } from '../common/components/modal/modal.service';
 import { FullCardComponent } from './card/full-card/full-card.component';
@@ -8,7 +8,7 @@ import { FullCardComponent } from './card/full-card/full-card.component';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, OnDestroy {
 
   public products: Product[];
 
@@ -31,5 +31,9 @@ export class ProductsComponent implements OnInit {
         product
       }
     });
+  }
+
+  public ngOnDestroy(): void {
+    this._modalService.close();
   }
 }

@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import 'rxjs/add/operator/scan';
 @Injectable()
 export class CartService {
 
-  private _cartSequence$$: Subject<CartItem> = new Subject();
+  private _cartSequence$$: BehaviorSubject<CartItem | any[]> = new BehaviorSubject([]);
 
   public set updateCart(cartItem: CartItem) {
     this._cartSequence$$.next(cartItem);

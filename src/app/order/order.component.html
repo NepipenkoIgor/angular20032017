@@ -1,3 +1,105 @@
-<p>
-  order works!
-</p>
+<!--<form class="example-form" #f="ngForm" (submit)="sendOrder(f.value)">-->
+<!--<md-input-container class="example-full-width">-->
+<!--<input mdInput placeholder="Order name" value="first order"-->
+<!--ngModel name="orderName" required minlength="5" maxlength="7">-->
+<!--</md-input-container>-->
+
+<!--<table class="example-full-width" cellspacing="0">-->
+<!--<tr>-->
+<!--<td>-->
+<!--<md-input-container class="example-full-width">-->
+<!--<input mdInput placeholder="First name"-->
+<!--ngModel name="firstName" required minlength="5" maxlength="7">-->
+<!--</md-input-container>-->
+<!--</td>-->
+<!--<td>-->
+<!--<md-input-container class="example-full-width">-->
+<!--<input mdInput placeholder=" Last Name"-->
+<!--ngModel name="lastName" required minlength="5" maxlength="7">-->
+<!--</md-input-container>-->
+<!--</td>-->
+<!--</tr>-->
+<!--</table>-->
+
+<!--<table class="example-full-width" cellspacing="0" ngModelGroup="pass"-->
+<!--#passwordGroup="ngModelGroup"-->
+<!--appPassValidator>-->
+<!--<tr>-->
+<!--<td>-->
+<!--<md-input-container class="example-full-width">-->
+<!--<input mdInput placeholder="password" type="password"-->
+<!--ngModel name="pass" required minlength="5" maxlength="7">-->
+<!--</md-input-container>-->
+<!--</td>-->
+<!--<td>-->
+<!--<md-input-container class="example-full-width">-->
+<!--<input mdInput placeholder="confirm password"  type="password"-->
+<!--ngModel name="cpass" required minlength="5" maxlength="7">-->
+<!--</md-input-container>-->
+<!--</td>-->
+<!--<span *ngIf="passwordGroup.hasError('isNotEqual')"> Is Not equal</span>-->
+<!--</tr>-->
+<!--</table>-->
+
+<!--<button md-button type="submit" [disabled]="f.invalid"> Make Order</button>-->
+<!--</form>-->
+<form class="example-form" [formGroup]="orderForm" (submit)="sendOrder(orderForm.value)">
+  <md-input-container class="example-full-width">
+    <input mdInput placeholder="Order name" value="first order"
+      [formControl]="orderForm.controls['orderName']">
+  </md-input-container>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <md-input-container class="example-full-width">
+          <input mdInput placeholder="First name"
+            formControlName="firstName">
+        </md-input-container>
+      </td>
+      <td>
+        <md-input-container class="example-full-width">
+          <input mdInput placeholder=" Last Name"
+            formControlName="lastName">
+        </md-input-container>
+      </td>
+
+
+    </tr>
+  </table>
+
+<table class="example-full-width" cellspacing="0"
+  formGroupName="pass"
+>
+  <tr>
+    <td>
+      <md-input-container class="example-full-width">
+        <input mdInput placeholder="password" type="password"
+          formControlName="pass">
+      </md-input-container>
+    </td>
+    <td>
+      <md-input-container class="example-full-width">
+        <input mdInput placeholder="confirm password" type="password"
+          formControlName="cpass">
+      </md-input-container>
+    </td>
+    <span *ngIf="orderForm.controls['pass'].hasError('isNotEqual')"> Is Not equal</span>
+  </tr>
+  <!--<md-input-container class="example-full-width">-->
+  <!--<input mdInput placeholder="confirm password"  type="password"-->
+  <!--[formControl]="orderForm.controls['pass'].controls['cpass']">-->
+  <!--</md-input-container>-->
+</table>
+
+<button md-button type="submit" [disabled]="orderForm.invalid"> Make Order</button>
+</form>
+
+<!--<form [formGroup]="emailsModel">-->
+  <!--<ul formGroupName="emails">-->
+    <!--<li *ngFor="let e of emailsModel.get('emails').controls; index as i">-->
+      <!--<input type="text" formControlName="{{i}}">-->
+    <!--</li>-->
+  <!--</ul>-->
+  <!--<button md-button (click)="addEmail()"> add email</button>-->
+<!--</form>-->

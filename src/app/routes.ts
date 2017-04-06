@@ -4,6 +4,7 @@ import { InfoComponent } from './info/info.component';
 import { OrderComponent } from './order/order.component';
 import { ProductComponent } from './product/product.component';
 import { ProductResolveService } from './product/product-resolve.service';
+import { OrderGuardService } from './order/order-guard.service';
 export const routes: Route[] = [
   {
     path: '',
@@ -27,6 +28,10 @@ export const routes: Route[] = [
           title: 'Info about product'
         }
       },
+      {
+        path: '**',
+        redirectTo: '/info'
+      }
     ]
   },
   {
@@ -35,7 +40,8 @@ export const routes: Route[] = [
   },
   {
     path: 'order',
-    component: OrderComponent
+    component: OrderComponent,
+   // canActivate: [OrderGuardService]
   },
   {
     path: '**',
