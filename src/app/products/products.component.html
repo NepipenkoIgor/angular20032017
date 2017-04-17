@@ -1,4 +1,4 @@
-<app-card *ngFor="let product of products; let i = index; let isOdd=odd"
+<app-card *ngFor="let product of products | productsFilter: searchTerm; let i = index; let isOdd=odd"
   [product]="product"
   [position]="i+1"
   [isOdd]="isOdd"

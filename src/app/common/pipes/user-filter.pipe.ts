@@ -1,17 +1,17 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'userFilter'
+  name: 'productsFilter'
 })
 export class UserFilterPipe implements PipeTransform {
 
-  public transform(users: User[], searchTerm: string): User[] {
+  public transform(products: Product[], searchTerm: string): Product[] {
     if (!searchTerm) {
-      return users;
+      return products;
     }
 
-    return users
-      .filter((user: User) => `${user.firstName}${user.surname}`.includes(searchTerm));
+    return products
+      .filter((product: Product) => `${product.title} ${product.price}`.includes(searchTerm));
   }
 
 }
